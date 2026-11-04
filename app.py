@@ -50,7 +50,7 @@ def headers(resp):
     resp.headers['X-Content-Type-Options']='nosniff'
     resp.headers['Referrer-Policy']='strict-origin-when-cross-origin'
     resp.headers['X-Frame-Options']='DENY'
-    resp.headers['Content-Security-Policy']="default-src 'self'; img-src 'self' data:; media-src 'self' https:; style-src 'self' 'unsafe-inline'; script-src 'self'; connect-src 'self'; base-uri 'self'; object-src 'none'; frame-ancestors 'none'"
+    resp.headers['Content-Security-Policy'] = "default-src 'self'; img-src 'self' data: https:; media-src 'self' https:; style-src 'self' 'unsafe-inline' https:; script-src 'self' https://cdn.cloud.caster.fm 'unsafe-inline'; connect-src 'self' https://cloud.caster.fm https://cdn.cloud.caster.fm; base-uri 'self'; object-src 'none'; frame-ancestors 'none'"
     return resp
 
 @app.get('/')
