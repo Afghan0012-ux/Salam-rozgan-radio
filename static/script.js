@@ -450,8 +450,7 @@ async function initialize() {
       }
 
       if (!stream) {
-        $('playerStatus').textContent = t('needStream');
-        location.hash = '#admin';
+$('playerStatus').textContent = 'د ژوندۍ راډیو د اورېدو لپاره لاندې Caster.fm پلیر وکاروئ.'; 
         return;
       }
 
