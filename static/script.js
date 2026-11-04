@@ -22,3 +22,17 @@ $('radio').onerror=()=>$('playerStatus').textContent='Unable to play stream. Che
 $('exportBtn').onclick=()=>{const blob=new Blob([JSON.stringify({posts,stream},null,2)],{type:'application/json'});const url=URL.createObjectURL(blob),a=el('a');a.href=url;a.download='salam-rozgan-backup.json';a.click();setTimeout(()=>URL.revokeObjectURL(url),1000)};
 (async()=>{try{const state=await api('/api/status');admin=state.admin;csrf=state.csrf||'';adminView();const settings=await api('/api/settings');stream=settings.stream;$('streamUrl').value=stream;await refresh()}catch(e){$('playerStatus').textContent='Connection error: '+e.message}})();
 $('year').textContent=new Date().getFullYear();setLanguage(lang);
+// Keep the About section synchronized with the selected language.
+const originalSetLanguage = setLanguage;
+
+setLanguage = function (selectedLanguage) {
+  originalSetLanguage(selectedLanguage);
+
+  const languageSelect = document.getElementById('language');
+
+  if (languageSelect) {
+    languageSelect.dispatchEvent(
+      new Event('change')
+    );
+  }
+};
