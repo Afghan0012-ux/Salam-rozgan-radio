@@ -39,15 +39,15 @@ body.about-view #about{display:block!important;min-height:100vh;margin:0;padding
 <section id="programs" class="section"><div class="section-head"><h2 data-i18n="programs">خپرونې</h2></div><div id="programList" class="cards"></div></section>
 <!-- زموږ په اړه -->
 <section id="about" class="section about-section"><div class="about-shell">
-<a href="#home" class="about-back">↩️ بېرته کورپاڼې ته</a>
+<a href="#home" class="about-back" data-about-key="back">↩️ بېرته کورپاڼې ته</a>
 <div class="card about-card"><div class="about-content">
 <span class="about-eyebrow">ABOUT US • 90.2 FM</span>
-<h2 class="about-title">🎙️ زموږ په اړه</h2><h3>سلام روزګان راډیو</h3>
-<p class="about-lead">سلام روزګان راډیو په ارزګان ولایت کې یوه له فعالو رسنیو څخه ده، چې په زرګونو اورېدونکي او مینه‌وال لري.</p>
-<p class="about-lead">زموږ نشرات ۲۴ ساعته د ۹۰٫۲ FM فریکونسۍ له لارې په ژوندۍ بڼه خپرېږي. سلام روزګان راډیو خپلو اورېدونکو ته د خبرونو ترڅنګ ورزشي، تفریحي او تعلیمي خپرونې وړاندې کوي.</p>
-<div class="about-grid"><div class="about-panel"><h3>👥 زموږ کاري ټیم</h3><div class="team-list">
-<p>ښاغلی بریالی انصاري — د راډیو رئیس</p><p>ښاغلی جلال‌الدین ریحان — عمومي مدیر</p><p>ښاغلی سخي جان حسني — د نشراتو مدیر</p><p>ښاغلی سیف‌الدین الهام — ویاند</p><p>ښاغلی صدام مهران — ویاند</p><p>ښاغلی ذبیح‌الله غني — ویاند</p><p>ښاغلی نظام‌الدین سالارزی — رپورټر</p><p>ښاغلی حکمت‌الله رښتین — تخنیکر</p><p>ښاغلی نثاراحمد زعفراني — تخنیکر</p>
-</div></div><div class="about-panel"><h3>☎️ اړیکې او واټساپ</h3><div class="contact-list"><p><a href="tel:+93700004618">0700004618</a></p><p><a href="tel:+93707303300">0707303300</a></p></div><div class="about-actions"><a href="https://wa.me/93700004618" target="_blank" rel="noopener noreferrer">💬 په واټساپ اړیکه ونیسئ</a><a href="#player">🎧 ژوندۍ راډیو واورئ</a></div></div></div>
+<h2 class="about-title" data-about-key="title">🎙️ زموږ په اړه</h2><h3 data-about-key="station">سلام روزګان راډیو</h3>
+<p class="about-lead" data-about-key="intro">سلام روزګان راډیو په ارزګان ولایت کې یوه له فعالو رسنیو څخه ده، چې په زرګونو اورېدونکي او مینه‌وال لري.</p>
+<p class="about-lead" data-about-key="broadcast">زموږ نشرات ۲۴ ساعته د ۹۰٫۲ FM فریکونسۍ له لارې په ژوندۍ بڼه خپرېږي. سلام روزګان راډیو خپلو اورېدونکو ته د خبرونو ترڅنګ ورزشي، تفریحي او تعلیمي خپرونې وړاندې کوي.</p>
+<div class="about-grid"><div class="about-panel"><h3 data-about-key="team">👥 زموږ کاري ټیم</h3><div class="team-list">
+<p data-about-person="0">ښاغلی بریالی انصاري — د راډیو رئیس</p><p data-about-person="1">ښاغلی جلال‌الدین ریحان — عمومي مدیر</p><p data-about-person="2">ښاغلی سخي جان حسني — د نشراتو مدیر</p><p data-about-person="3">ښاغلی سیف‌الدین الهام — ویاند</p><p data-about-person="4">ښاغلی صدام مهران — ویاند</p><p data-about-person="5">ښاغلی ذبیح‌الله غني — ویاند</p><p data-about-person="6">ښاغلی نظام‌الدین سالارزی — رپورټر</p><p data-about-person="7">ښاغلی حکمت‌الله رښتین — تخنیکر</p><p data-about-person="8">ښاغلی نثاراحمد زعفراني — تخنیکر</p>
+</div></div><div class="about-panel"><h3 data-about-key="contact">☎️ اړیکې او واټساپ</h3><div class="contact-list"><p><a href="tel:+93700004618">0700004618</a></p><p><a href="tel:+93707303300">0707303300</a></p></div><div class="about-actions"><a href="https://wa.me/93700004618" target="_blank" rel="noopener noreferrer" data-about-key="whatsapp">💬 په واټساپ اړیکه ونیسئ</a><a href="#player" data-about-key="listen">🎧 ژوندۍ راډیو واورئ</a></div></div></div>
 </div></div></div></section>
 <!-- زموږ په اړه پای -->
 <section id="admin" class="section"><div class="section-head"><h2 data-i18n="admin">مدیریت</h2><span class="muted" data-i18n="demo">یوازې محلي ازمایښتي مدیریت — آنلاین خوندي سیستم نه دی</span></div><div class="card form" id="loginBox"><h3>🔐 Admin Login / مدیر ننوتل</h3><input id="adminPassword" type="password" autocomplete="current-password" placeholder="Admin password"><button id="loginBtn" class="primary" type="button">Login / ننوتل</button><p id="loginStatus" aria-live="polite"></p></div><div id="adminPanel" hidden><button id="logoutBtn" class="outline" type="button">Logout / وتل</button><div class="admin-grid"><form id="postForm" class="card form"><h3 data-i18n="addContent">نوی مطلب اضافه کړئ</h3><label data-i18n="type">ډول</label><select id="postType"><option value="news" data-i18n="news">خبرونه</option><option value="photo" data-i18n="gallery">عکسونه</option><option value="video" data-i18n="videos">ویډیوګانې</option><option value="program" data-i18n="programs">خپرونې</option></select><label data-i18n="title">عنوان</label><input id="postTitle" maxlength="120" required placeholder="عنوان"><label data-i18n="description">تشریح</label><textarea id="postDescription" maxlength="3000" rows="4" placeholder="متن / تشریح"></textarea><label data-i18n="imageUpload">عکس انتخاب کړئ</label><input id="postImage" type="file" accept="image/png,image/jpeg,image/webp,image/gif,audio/mpeg,audio/ogg,audio/wav,video/mp4,video/webm"><small class="muted" data-i18n="imageNote">عکس، غږ یا ویډیو تر 25MB پورې؛ د فایلونو ذخیره په سرور کې کېږي</small><label data-i18n="mediaUrl">د ویډیو یا غږ مستقیم HTTPS لینک (اختیاري)</label><input id="postMedia" type="url" placeholder="https://example.com/video.mp4"><button class="primary" type="submit" data-i18n="publish">خوندي کړئ</button><p id="formStatus" aria-live="polite"></p></form><div class="card form"><h3 data-i18n="settings">د راډیو تنظیمات</h3><label data-i18n="streamUrl">د ژوندۍ راډیو مستقیم HTTPS سټریم لینک</label><input id="streamUrl" type="url" placeholder="https://example.com/live.mp3"><button class="outline" id="saveStream" data-i18n="saveStream">سټریم خوندي کړئ</button><p class="muted" data-i18n="streamHint">FM فریکونسي پخپله انټرنېټي سټریم نه دی. د راډیو له تخنیکي ټیم څخه لینک واخلئ.</p><hr><h3 data-i18n="managePosts">خپل مطالب</h3><div id="adminList"></div><button class="outline" id="exportBtn" data-i18n="export">د معلوماتو JSON بیک اپ</button></div></div></div></section></main>
@@ -58,6 +58,28 @@ body.about-view #about{display:block!important;min-height:100vh;margin:0;padding
 function syncAbout(){var isAbout=window.location.hash==='#about';document.body.classList.toggle('about-view',isAbout);if(isAbout)window.scrollTo(0,0);}
 window.addEventListener('hashchange',syncAbout);
 if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',syncAbout);else syncAbout();
+})();
+</script>
+
+<script>
+/* About page translations, isolated from the site's existing language script. */
+(function () {
+ const copy = {
+ ps:{back:'↩️ بېرته کورپاڼې ته',title:'🎙️ زموږ په اړه',station:'سلام روزګان راډیو',intro:'سلام روزګان راډیو په ارزګان ولایت کې یوه له فعالو رسنیو څخه ده، چې په زرګونو اورېدونکي او مینه‌وال لري.',broadcast:'زموږ نشرات ۲۴ ساعته د ۹۰٫۲ FM فریکونسۍ له لارې په ژوندۍ بڼه خپرېږي. سلام روزګان راډیو خپلو اورېدونکو ته د خبرونو ترڅنګ ورزشي، تفریحي او تعلیمي خپرونې وړاندې کوي.',team:'👥 زموږ کاري ټیم',contact:'☎️ اړیکې او واټساپ',whatsapp:'💬 په واټساپ اړیکه ونیسئ',listen:'🎧 ژوندۍ راډیو واورئ'},
+ fa:{back:'↩️ بازگشت به صفحه اصلی',title:'🎙️ درباره ما',station:'رادیو سلام روزگان',intro:'رادیو سلام روزگان یکی از رسانه‌های فعال در ولایت ارزگان است که هزاران شنونده و علاقه‌مند دارد.',broadcast:'برنامه‌های ما به‌صورت ۲۴ ساعته از طریق فرکانس ۹۰٫۲ اف‌ام پخش می‌شوند. رادیو سلام روزگان علاوه بر خبرها، برنامه‌های ورزشی، تفریحی و آموزشی را به شنوندگان ارائه می‌کند.',team:'👥 تیم کاری ما',contact:'☎️ تماس و واتساپ',whatsapp:'💬 تماس از طریق واتساپ',listen:'🎧 شنیدن رادیوی زنده'},
+ en:{back:'↩️ Back to home',title:'🎙️ About Us',station:'Salam Rozgan Radio',intro:'Salam Rozgan Radio is an active media outlet in Uruzgan Province with thousands of listeners and supporters.',broadcast:'We broadcast 24 hours a day on 90.2 FM, bringing our audience news, sports, entertainment and educational programs.',team:'👥 Our Team',contact:'☎️ Contact & WhatsApp',whatsapp:'💬 Contact us on WhatsApp',listen:'🎧 Listen Live'}
+ };
+ const people = [{"ps": "ښاغلی بریالی انصاري — رئیس", "en": "Baryalai Ansari — Radio Director", "fa": "آقای بریالی انصاری — رئیس رادیو"}, {"ps": "ښاغلی جلال\u200cالدین ریحان — عمومي مدیر", "en": "Jalaluddin Raihan — General Manager", "fa": "آقای جلال\u200cالدین ریحان — مدیر عمومی"}, {"ps": "ښاغلی سخي جان حسني — د نشراتو مدیر", "en": "Sakhi Jan Hasani — Broadcast Manager", "fa": "آقای سخی جان حسنی — مدیر نشرات"}, {"ps": "ښاغلی سیف\u200cالدین الهام — ویاند", "en": "Saifuddin Elham — Presenter", "fa": "آقای سیف\u200cالدین الهام — گوینده"}, {"ps": "ښاغلی صدام مهران — ویاند", "en": "Saddam Mehran — Presenter", "fa": "آقای صدام مهران — گوینده"}, {"ps": "ښاغلی ذبیح\u200cالله غني — ویاند", "en": "Zabihullah Ghani — Presenter", "fa": "آقای ذبیح\u200cالله غنی — گوینده"}, {"ps": "ښاغلی نظام\u200cالدین سالارزی — رپورټر", "en": "Nizamuddin Salarzai — Reporter", "fa": "آقای نظام\u200cالدین سالارزی — خبرنگار"}, {"ps": "ښاغلی حکمت\u200cالله رښتین — تخنیکر", "en": "Hikmatullah Rishtin — Technician", "fa": "آقای حکمت\u200cالله رښتین — تخنیکر"}, {"ps": "ښاغلی نثاراحمد زعفراني — تخنیکر", "en": "Nisar Ahmad Zafarani — Technician", "fa": "آقای نثاراحمد زعفرانی — تخنیکر"}];
+ function translateAbout(){
+  const select=document.getElementById('language');
+  const lang=select && copy[select.value] ? select.value : (copy[localStorage.getItem('srr_lang')] ? localStorage.getItem('srr_lang') : 'ps');
+  document.querySelectorAll('#about [data-about-key]').forEach(el=>{el.textContent=copy[lang][el.dataset.aboutKey]||'';});
+  document.querySelectorAll('#about [data-about-person]').forEach(el=>{const p=people[Number(el.dataset.aboutPerson)];if(p)el.textContent=p[lang];});
+  document.getElementById('about').setAttribute('dir',lang==='en'?'ltr':'rtl');
+  document.querySelectorAll('a[href="#about"]').forEach(el=>{el.textContent=({ps:'زموږ په اړه',fa:'درباره ما',en:'About Us'})[lang];});
+ }
+ function init(){const select=document.getElementById('language');if(select){select.addEventListener('change',translateAbout);select.addEventListener('input',translateAbout);}translateAbout();}
+ if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',init);else init();
 })();
 </script>
 </body></html>
