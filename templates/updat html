@@ -1,0 +1,685 @@
+<!doctype html>
+<html lang="ps" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#0a0718">
+<title>سلام روزګان راډیو | 90.2 FM</title>
+<link rel="stylesheet" href="/static/style.css">
+
+<style>
+/* About page */
+body.about-view .topbar,
+body.about-view main > :not(#about),
+body.about-view footer {
+  display: none !important;
+}
+
+body.about-view #about {
+  display: block !important;
+  min-height: 100vh;
+  margin: 0;
+  padding: 32px 18px 70px;
+  max-width: none;
+  background:
+    radial-gradient(circle at 80% 0%, #30205d 0%, transparent 48%),
+    linear-gradient(140deg, #090b1c, #111d39 60%, #090b1c);
+  color: #f5f5ff;
+}
+
+#about .about-shell {
+  max-width: 1050px;
+  margin: auto;
+}
+
+#about .about-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 13px 20px;
+  border: 1px solid #ffffff50;
+  border-radius: 999px;
+  background: #ffffff12;
+  color: #fff;
+  text-decoration: none;
+  margin-bottom: 28px;
+}
+
+#about .about-back:hover {
+  background: #ffffff25;
+}
+
+#about .about-card {
+  border: 1px solid #ffffff25;
+  border-radius: 28px;
+  padding: clamp(20px, 5vw, 52px);
+  background: linear-gradient(145deg, #ffffff19, #ffffff08);
+  box-shadow: 0 25px 75px #0006;
+  backdrop-filter: blur(14px);
+}
+
+#about .about-eyebrow {
+  color: #f5cb78;
+  letter-spacing: 2px;
+  font-weight: 800;
+}
+
+#about .about-title {
+  font-size: clamp(30px, 5vw, 54px);
+  margin: 12px 0;
+  background: linear-gradient(90deg, #fff, #a4d7ff, #f5cb78);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+#about .about-lead {
+  font-size: 1.12rem;
+  line-height: 2.2;
+  color: #e1e8ff;
+}
+
+#about .about-grid {
+  display: grid;
+  grid-template-columns:
+    repeat(auto-fit, minmax(min(100%, 280px), 1fr));
+  gap: 18px;
+  margin-top: 26px;
+}
+
+#about .about-panel {
+  border: 1px solid #ffffff24;
+  border-radius: 20px;
+  background: #ffffff0c;
+  padding: 22px;
+}
+
+#about .about-panel h3 {
+  color: #f5cb78;
+  margin-top: 0;
+}
+
+#about .team-list {
+  display: grid;
+  grid-template-columns:
+    repeat(auto-fit, minmax(min(100%, 240px), 1fr));
+  gap: 12px;
+}
+
+#about .team-list p {
+  padding: 14px 16px;
+  border: 1px solid #ffffff20;
+  border-radius: 14px;
+  background: #ffffff0a;
+  margin: 0;
+  line-height: 1.8;
+}
+
+#about .about-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+#about .about-actions a {
+  display: inline-flex;
+  padding: 13px 20px;
+  border-radius: 14px;
+  background: linear-gradient(110deg, #7864ed, #347fc4);
+  color: #fff;
+  text-decoration: none;
+  font-weight: 700;
+}
+
+#about .about-panel a {
+  color: #b5dfff;
+}
+
+#about .about-actions a {
+  color: #fff;
+}
+
+#about .about-actions a:hover {
+  filter: brightness(1.15);
+}
+
+#about[dir="ltr"] {
+  text-align: left;
+}
+
+#about[dir="rtl"] {
+  text-align: right;
+}
+</style>
+</head>
+
+<body>
+
+<div class="ambient"></div>
+
+<div class="topstrip" id="topstrip">
+  <span class="topstrip-item">🕐 <span id="clock">…</span></span>
+  <span class="topstrip-item">📅 <span id="todayDate">…</span></span>
+  <span class="topstrip-item">🌤️ ترینکوټ: <span id="weather">…</span></span>
+  <button id="weatherRefresh" class="topstrip-refresh" type="button" title="تازه کول">↻</button>
+</div>
+
+<header class="topbar">
+  <a href="#home" class="brand">
+    <span class="brand-icon">🎙️</span>
+    <span>
+      <strong data-i18n="brand">سلام روزګان راډیو</strong>
+      <small>90.2 FM • Salam Rozgan Radio</small>
+    </span>
+  </a>
+
+  <nav>
+    <a href="#home" data-i18n="home">کورپاڼه</a>
+    <a href="#news" data-i18n="news">خبرونه</a>
+    <a href="#gallery" data-i18n="gallery">عکسونه</a>
+    <a href="#videos" data-i18n="videos">ویډیوګانې</a>
+    <a href="#programs" data-i18n="programs">خپرونې</a>
+    <a href="#admin" data-i18n="admin">مدیریت</a>
+    <a href="#about" id="aboutNav" data-i18n="about">زموږ په اړه</a>
+  </nav>
+
+  <select id="language" aria-label="Language">
+    <option value="ps">پښتو</option>
+    <option value="fa">دری</option>
+    <option value="en">English</option>
+  </select>
+</header>
+
+<main>
+
+<section id="home" class="hero">
+  <div class="hero-copy">
+    <div class="eyebrow">✦ ON AIR • 90.2 FM</div>
+    <h1 data-i18n="brand">سلام روزګان راډیو</h1>
+    <h2>Salam Rozgan Radio</h2>
+    <p data-i18n="tagline">ستاسې غږ، ستاسې راډیو</p>
+
+    <div class="hero-actions">
+      <a class="primary" href="#player" data-i18n="listen">
+        ژوندۍ راډیو واورئ
+      </a>
+      <a class="outline" href="#news" data-i18n="latest">
+        وروستي خبرونه
+      </a>
+    </div>
+  </div>
+
+  <div class="scene" aria-label="Microphone">
+    <div class="halo"></div>
+    <div class="mic">
+      <div class="mic-head"></div>
+      <div class="mic-neck"></div>
+      <div class="mic-base"></div>
+    </div>
+    <div class="wave wave-left">▂▅▇▃▆▂▇▅▃</div>
+    <div class="wave wave-right">▃▇▂▆▃▇▅▂▆</div>
+  </div>
+</section>
+
+<section id="player" class="player card">
+  <div>
+    <span class="live-dot"></span>
+    <strong data-i18n="live">ژوندۍ راډیو</strong>
+    <small>90.2 FM</small>
+  </div>
+
+  <button id="playBtn" class="round" aria-label="Play or pause">
+    ▶️
+  </button>
+
+  <div class="bars" aria-hidden="true">
+    <i></i><i></i><i></i><i></i><i></i>
+    <i></i><i></i><i></i><i></i><i></i>
+    <i></i><i></i><i></i><i></i><i></i>
+  </div>
+
+  <label class="volume">
+    🔊
+    <input type="range" id="volume"
+           min="0" max="1" step="0.05" value="0.8">
+  </label>
+
+  <audio id="radio" preload="none"></audio>
+  <div data-type="newStreamPlayer"
+     data-publicToken="8135ab93-527c-4265-85ad-bdde4012317a"
+     data-theme="light"
+     data-color="e81e4d"
+     data-channelId=""
+     data-rendered="false"
+     class="cstrEmbed">
+  <a href="https://www.caster.fm">Shoutcast Hosting</a>
+  <a href="https://www.caster.fm">Stream Hosting</a>
+  <a href="https://www.caster.fm">Radio Server Hosting</a>
+</div>
+  <div id="playerBox" class="player-box" aria-live="polite">
+    <span id="playerBoxText">⏳ ژوندۍ پلیر بارېږي…</span>
+    <button id="playerRetry" class="outline player-retry" type="button" hidden>پلیر بیا بار کړئ</button>
+  </div>
+   <span id="playerStatus" class="muted" aria-live="polite"></span>
+</section>
+
+<section id="news" class="section">
+  <div class="section-head">
+    <h2 data-i18n="news">خبرونه</h2>
+    <span class="muted" data-i18n="newsHint">
+      د راډیو تازه خبرونه
+    </span>
+  </div>
+  <div id="newsList" class="cards"></div>
+</section>
+
+<section id="gallery" class="section">
+  <div class="section-head">
+    <h2 data-i18n="gallery">عکسونه</h2>
+  </div>
+  <div id="photoList" class="cards"></div>
+</section>
+
+<section id="videos" class="section">
+  <div class="section-head">
+    <h2 data-i18n="videos">ویډیوګانې</h2>
+  </div>
+  <div id="videoList" class="cards"></div>
+</section>
+
+<section id="programs" class="section">
+  <div class="section-head">
+    <h2 data-i18n="programs">خپرونې</h2>
+  </div>
+  <div id="programList" class="cards"></div>
+</section>
+
+<section id="about" class="section about-section">
+  <div class="about-shell">
+
+    <a href="#home" class="about-back" data-about-key="back">
+      ↩️ بېرته کورپاڼې ته
+    </a>
+
+    <div class="card about-card">
+      <div class="about-content">
+
+        <span class="about-eyebrow">ABOUT US • 90.2 FM</span>
+
+        <h2 class="about-title" data-about-key="title">
+          🎙️ زموږ په اړه
+        </h2>
+
+        <h3 data-about-key="station">
+          سلام روزګان راډیو
+        </h3>
+
+        <p class="about-lead" data-about-key="intro">
+          سلام روزګان راډیو په ارزګان ولایت کې یوه له فعالو رسنیو
+          څخه ده، چې په زرګونو اورېدونکي او مینه‌وال لري.
+        </p>
+
+        <p class="about-lead" data-about-key="broadcast">
+          زموږ نشرات ۲۴ ساعته د ۹۰٫۲ FM فریکونسۍ له لارې
+          په ژوندۍ بڼه خپرېږي. سلام روزګان راډیو خپلو
+          اورېدونکو ته د خبرونو ترڅنګ ورزشي، تفریحي او
+          تعلیمي خپرونې وړاندې کوي.
+        </p>
+
+        <div class="about-grid">
+
+          <div class="about-panel">
+            <h3 data-about-key="team">👥 زموږ کاري ټیم</h3>
+
+            <div class="team-list">
+              <p data-about-person="0">ښاغلی بریالی انصاري — د راډیو رئیس</p>
+              <p data-about-person="1">ښاغلی جلال‌الدین ریحان — عمومي مدیر</p>
+              <p data-about-person="2">ښاغلی سخي جان حسني — د نشراتو مدیر</p>
+              <p data-about-person="3">ښاغلی سیف‌الدین الهام — ویاند</p>
+              <p data-about-person="4">ښاغلی صدام مهران — ویاند</p>
+              <p data-about-person="5">ښاغلی ذبیح‌الله غني — ویاند</p>
+              <p data-about-person="6">ښاغلی نظام‌الدین سالارزی — ویاند</p>
+              <p data-about-person="7">ښاغلی حکمت‌الله رښتین — تخنیکر</p>
+              <p data-about-person="8">ښاغلی نثاراحمد زعفراني — تخنیکر</p>
+              <p data-about-person="9">ښاغلی سید اعظم وصال — تخنیکر</p>
+            </div>
+          </div>
+
+          <div class="about-panel">
+            <h3 data-about-key="contact">☎️ اړیکې او واټساپ</h3>
+
+            <div class="contact-list">
+              <p><a href="tel:+93700004618">0700004618</a></p>
+              <p><a href="tel:+93707303300">0707303300</a></p>
+            </div>
+
+            <div class="about-actions">
+              <a href="https://wa.me/93700004618"
+                 target="_blank"
+                 rel="noopener noreferrer"
+                 data-about-key="whatsapp">
+                💬 په واټساپ اړیکه ونیسئ
+              </a>
+
+              <a href="#player" data-about-key="listen">
+                🎧 ژوندۍ راډیو واورئ
+              </a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="admin" class="section">
+  <div class="section-head">
+    <h2 data-i18n="admin">مدیریت</h2>
+  </div>
+
+  <div class="card form" id="loginBox">
+    <h3>🔐 Admin Login / مدیر ننوتل</h3>
+
+    <input id="adminPassword"
+           type="password"
+           autocomplete="current-password"
+           placeholder="Admin password">
+
+    <button id="loginBtn" class="primary" type="button">
+      Login / ننوتل
+    </button>
+
+    <p id="loginStatus" aria-live="polite"></p>
+  </div>
+
+  <div id="adminPanel" hidden>
+    <button id="logoutBtn" class="outline" type="button">
+      Logout / وتل
+    </button>
+
+    <div class="admin-grid">
+      <form id="postForm" class="card form">
+
+        <h3 data-i18n="addContent">نوی مطلب اضافه کړئ</h3>
+
+        <label data-i18n="type">ډول</label>
+        <select id="postType">
+          <option value="news" data-i18n="news">خبرونه</option>
+          <option value="photo" data-i18n="gallery">عکسونه</option>
+          <option value="video" data-i18n="videos">ویډیوګانې</option>
+          <option value="program" data-i18n="programs">خپرونې</option>
+        </select>
+
+        <label data-i18n="title">عنوان</label>
+        <input id="postTitle" maxlength="120" required>
+
+        <label data-i18n="description">تشریح</label>
+        <textarea id="postDescription"
+                  maxlength="3000"
+                  rows="4"></textarea>
+
+        <label data-i18n="imageUpload">عکس انتخاب کړئ</label>
+        <input id="postImage"
+               type="file"
+               accept="image/png,image/jpeg,image/webp,image/gif,audio/mpeg,audio/ogg,audio/wav,video/mp4,video/webm">
+
+        <small class="muted">
+          عکس، غږ یا ویډیو تر 25MB پورې
+        </small>
+
+        <label data-i18n="mediaUrl">
+          د ویډیو یا غږ مستقیم HTTPS لینک
+        </label>
+
+        <input id="postMedia"
+               type="url"
+               placeholder="https://example.com/video.mp4">
+
+        <button class="primary" type="submit" data-i18n="publish">
+          خوندي کړئ
+        </button>
+
+        <p id="formStatus" aria-live="polite"></p>
+      </form>
+
+      <div class="card form">
+        <h3 data-i18n="settings">د راډیو تنظیمات</h3>
+
+        <label data-i18n="streamUrl">
+          د ژوندۍ راډیو مستقیم HTTPS سټریم لینک
+        </label>
+
+        <input id="streamUrl"
+               type="url"
+               placeholder="https://example.com/live.mp3">
+
+        <button class="outline"
+                id="saveStream"
+                type="button"
+                data-i18n="saveStream">
+          سټریم خوندي کړئ
+        </button>
+
+        <p class="muted" data-i18n="streamHint">
+          FM فریکونسي په خپله انټرنېټي سټریم نه دی.
+        </p>
+
+        <hr>
+
+        <h3 data-i18n="managePosts">خپل مطالب</h3>
+        <div id="adminList"></div>
+
+        <button class="outline"
+                id="exportBtn"
+                type="button"
+                data-i18n="export">
+          JSON بیک اپ
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <strong data-i18n="brand">سلام روزګان راډیو</strong>
+  <span>90.2 FM · © <span id="year"></span></span>
+  <p data-i18n="footer">د سلام روزګان راډیو وېب‌سایټ</p>
+</footer>
+
+<script src="/static/script.js"></script>
+
+<script>
+(function () {
+  function syncAbout() {
+    const active = location.hash === '#about';
+
+    document.body.classList.toggle('about-view', active);
+
+    if (active) {
+      window.scrollTo(0, 0);
+    }
+  }
+
+  window.addEventListener('hashchange', syncAbout);
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', syncAbout);
+  } else {
+    syncAbout();
+  }
+})();
+
+(function () {
+  const copy = {
+    ps: {
+      back: '↩️ بېرته کورپاڼې ته',
+      title: '🎙️ زموږ په اړه',
+      station: 'سلام روزګان راډیو',
+      intro: 'سلام روزګان راډیو په ارزګان ولایت کې یوه له فعالو رسنیو څخه ده، چې په زرګونو اورېدونکي او مینه‌وال لري.',
+      broadcast: 'زموږ نشرات ۲۴ ساعته د ۹۰٫۲ FM فریکونسۍ له لارې په ژوندۍ بڼه خپرېږي. سلام روزګان راډیو خپلو اورېدونکو ته د خبرونو ترڅنګ ورزشي، تفریحي او تعلیمي خپرونې وړاندې کوي.',
+      team: '👥 زموږ کاري ټیم',
+      contact: '☎️ اړیکې او واټساپ',
+      whatsapp: '💬 په واټساپ اړیکه ونیسئ',
+      listen: '🎧 ژوندۍ راډیو واورئ',
+      nav: 'زموږ په اړه'
+    },
+
+    fa: {
+      back: '↩️ بازگشت به صفحه اصلی',
+      title: '🎙️ درباره ما',
+      station: 'رادیو سلام روزگان',
+      intro: 'رادیو سلام روزگان یکی از رسانه‌های فعال در ولایت ارزگان است که هزاران شنونده و علاقه‌مند دارد.',
+      broadcast: 'برنامه‌های ما به‌صورت ۲۴ ساعته از طریق فرکانس ۹۰٫۲ اف‌ام پخش می‌شوند. رادیو سلام روزگان علاوه بر خبرها، برنامه‌های ورزشی، تفریحی و آموزشی را به شنوندگان ارائه می‌کند.',
+      team: '👥 تیم کاری ما',
+      contact: '☎️ تماس و واتساپ',
+      whatsapp: '💬 تماس از طریق واتساپ',
+      listen: '🎧 شنیدن رادیوی زنده',
+      nav: 'درباره ما'
+    },
+
+    en: {
+      back: '↩️ Back to Home',
+      title: '🎙️ About Us',
+      station: 'Salam Rozgan Radio',
+      intro: 'Salam Rozgan Radio is an active media outlet in Uruzgan Province with thousands of listeners and supporters.',
+      broadcast: 'We broadcast 24 hours a day on 90.2 FM, bringing our audience news, sports, entertainment and educational programs.',
+      team: '👥 Our Team',
+      contact: '☎️ Contact & WhatsApp',
+      whatsapp: '💬 Contact us on WhatsApp',
+      listen: '🎧 Listen Live',
+      nav: 'About Us'
+    }
+  };
+
+  const people = [
+    {
+      ps: 'ښاغلی بریالی انصاري — د راډیو رئیس',
+      fa: 'آقای بریالی انصاری — رئیس رادیو',
+      en: 'Baryalai Ansari — Radio Director'
+    },
+    {
+      ps: 'ښاغلی جلال‌الدین ریحان — عمومي مدیر',
+      fa: 'آقای جلال‌الدین ریحان — مدیر عمومی',
+      en: 'Jalaluddin Raihan — General Manager'
+    },
+    {
+      ps: 'ښاغلی سخي جان حسني — د نشراتو مدیر',
+      fa: 'آقای سخی جان حسنی — مدیر نشرات',
+      en: 'Sakhi Jan Hasani — Broadcast Manager'
+    },
+    {
+      ps: 'ښاغلی سیف‌الدین الهام — ویاند',
+      fa: 'آقای سیف‌الدین الهام — گوینده',
+      en: 'Saifuddin Elham — Presenter'
+    },
+    {
+      ps: 'ښاغلی صدام مهران — ویاند',
+      fa: 'آقای صدام مهران — گوینده',
+      en: 'Saddam Mehran — Presenter'
+    },
+    {
+      ps: 'ښاغلی ذبیح‌الله غني — ویاند',
+      fa: 'آقای ذبیح‌الله غنی — گوینده',
+      en: 'Zabihullah Ghani — Presenter'
+    },
+    {
+      ps: 'ښاغلی نظام‌الدین سالارزی — ویاند',
+      fa: 'آقای نظام‌الدین سالارزی — گوینده',
+      en: 'Nizamuddin Salarzai — Presenter'
+    },
+    {
+      ps: 'ښاغلی حکمت‌الله رښتین — تخنیکر',
+      fa: 'آقای حکمت‌الله رښتین — تخنیکر',
+      en: 'Hikmatullah Rishtin — Technician'
+    },
+    {
+      ps: 'ښاغلی نثاراحمد زعفراني — تخنیکر',
+      fa: 'آقای نثاراحمد زعفرانی — تخنیکر',
+      en: 'Nisar Ahmad Zafarani — Technician'
+    },
+    {
+      ps: 'ښاغلی سید اعظم وصال — تخنیکر',
+      fa: 'آقای سید اعظم وصال — تخنیکر',
+      en: 'Sayed Azam Wesal — Technician'
+    }
+  ];
+
+  function translateAbout() {
+    const select = document.getElementById('language');
+
+    const stored = localStorage.getItem('srr_lang');
+
+    const language =
+      select && copy[select.value]
+        ? select.value
+        : (copy[stored] ? stored : 'ps');
+
+    const words = copy[language];
+
+    document.querySelectorAll(
+      '#about [data-about-key]'
+    ).forEach(element => {
+      const key = element.dataset.aboutKey;
+
+      if (Object.prototype.hasOwnProperty.call(words, key)) {
+        element.textContent = words[key];
+      }
+    });
+
+    document.querySelectorAll(
+      '#about [data-about-person]'
+    ).forEach(element => {
+      const person = people[
+        Number(element.dataset.aboutPerson)
+      ];
+
+      if (person) {
+        element.textContent = person[language];
+      }
+    });
+
+    const about = document.getElementById('about');
+
+    if (about) {
+      about.setAttribute(
+        'dir',
+        language === 'en' ? 'ltr' : 'rtl'
+      );
+    }
+
+    const nav = document.getElementById('aboutNav');
+
+    if (nav) {
+      nav.textContent = words.nav;
+    }
+  }
+
+  function init() {
+    const select = document.getElementById('language');
+
+    if (select) {
+      select.addEventListener('change', translateAbout);
+    }
+
+    document.addEventListener(
+      'srr:languagechange',
+      translateAbout
+    );
+
+    translateAbout();
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+})();
+</script>
+<script src="https://cdn.cloud.caster.fm/widgets/embed.js"></script>
+</body>
+</html>
