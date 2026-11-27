@@ -158,6 +158,13 @@ body.about-view #about {
 
 <div class="ambient"></div>
 
+<div class="topstrip" id="topstrip">
+  <span class="topstrip-item">🕐 <span id="clock">…</span></span>
+  <span class="topstrip-item">📅 <span id="todayDate">…</span></span>
+  <span class="topstrip-item">🌤️ ترینکوټ: <span id="weather">…</span></span>
+  <button id="weatherRefresh" class="topstrip-refresh" type="button" title="تازه کول">↻</button>
+</div>
+
 <header class="topbar">
   <a href="#home" class="brand">
     <span class="brand-icon">🎙️</span>
@@ -250,6 +257,10 @@ body.about-view #about {
   <a href="https://www.caster.fm">Stream Hosting</a>
   <a href="https://www.caster.fm">Radio Server Hosting</a>
 </div>
+  <div id="playerBox" class="player-box" aria-live="polite">
+    <span id="playerBoxText">⏳ ژوندۍ پلیر بارېږي…</span>
+    <button id="playerRetry" class="outline player-retry" type="button" hidden>پلیر بیا بار کړئ</button>
+  </div>
    <span id="playerStatus" class="muted" aria-live="polite"></span>
 </section>
 
@@ -328,9 +339,10 @@ body.about-view #about {
               <p data-about-person="3">ښاغلی سیف‌الدین الهام — ویاند</p>
               <p data-about-person="4">ښاغلی صدام مهران — ویاند</p>
               <p data-about-person="5">ښاغلی ذبیح‌الله غني — ویاند</p>
-              <p data-about-person="6">ښاغلی نظام‌الدین سالارزی — رپورټر</p>
+              <p data-about-person="6">ښاغلی نظام‌الدین سالارزی — ویاند</p>
               <p data-about-person="7">ښاغلی حکمت‌الله رښتین — تخنیکر</p>
               <p data-about-person="8">ښاغلی نثاراحمد زعفراني — تخنیکر</p>
+              <p data-about-person="9">ښاغلی سید اعظم وصال — تخنیکر</p>
             </div>
           </div>
 
@@ -575,9 +587,9 @@ body.about-view #about {
       en: 'Zabihullah Ghani — Presenter'
     },
     {
-      ps: 'ښاغلی نظام‌الدین سالارزی — رپورټر',
-      fa: 'آقای نظام‌الدین سالارزی — خبرنگار',
-      en: 'Nizamuddin Salarzai — Reporter'
+      ps: 'ښاغلی نظام‌الدین سالارزی — ویاند',
+      fa: 'آقای نظام‌الدین سالارزی — گوینده',
+      en: 'Nizamuddin Salarzai — Presenter'
     },
     {
       ps: 'ښاغلی حکمت‌الله رښتین — تخنیکر',
@@ -588,6 +600,11 @@ body.about-view #about {
       ps: 'ښاغلی نثاراحمد زعفراني — تخنیکر',
       fa: 'آقای نثاراحمد زعفرانی — تخنیکر',
       en: 'Nisar Ahmad Zafarani — Technician'
+    },
+    {
+      ps: 'ښاغلی سید اعظم وصال — تخنیکر',
+      fa: 'آقای سید اعظم وصال — تخنیکر',
+      en: 'Sayed Azam Wesal — Technician'
     }
   ];
 
