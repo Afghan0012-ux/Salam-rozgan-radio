@@ -8,6 +8,101 @@ let csrf = '';
 let admin = false;
 let stream = '';
 
+// --- Weather, time and date strip (top of the site) ---
+const TARINKOT = { lat: 32.62, lon: 65.87 };
+
+function psTime(date) {
+  try {
+    return date.toLocaleTimeString('ps-AF', { timeZone: 'Asia/Kabul', hour: '2-digit', minute: '2-digit', second: '2-digit' });
+  } catch (e) {
+    return date.toLocaleTimeString('en-GB', { timeZone: 'Asia/Kabul', hour: '2-digit', minute: '2-digit', second: '2-digit' });
+  }
+}
+
+function psDate(date) {
+  try {
+    return date.toLocaleDateString('ps-AF', { timeZone: 'Asia/Kabul', weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' });
+  } catch (e) {
+    return date.toLocaleDateString('en-GB', { timeZone: 'Asia/Kabul', weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' });
+  }
+}
+
+function tickClock() {
+  const now = new Date();
+  const clock = $('clock');
+  if (clock) clock.textContent = psTime(now);
+  const d = $('todayDate');
+  if (d) d.textContent = psDate(now);
+}
+
+function weatherWord(code) {
+  if (code === 0) return 'صاف';
+  if (code <= 2) return 'لږ وریځ';
+  if (code === 3) return 'وریځ';
+  if (code === 45 || code === 48) return 'غبار';
+  if (code >= 51 && code <= 57) return 'څاڅکی';
+  if (code >= 61 && code <= 67) return 'باران';
+  if (code >= 71 && code <= 77) return 'واوره';
+  if (code >= 80 && code <= 82) return 'باران';
+  if (code === 95) return 'تندر او باران';
+  return '—';
+}
+
+async function loadWeather() {
+  const w = $('weather');
+  if (!w) return;
+  try {
+    const url = 'https://api.open-meteo.com/v1/forecast?latitude=' + TARINKOT.lat + '&longitude=' + TARINKOT.lon + '&current=temperature_2m,weather_code,relative_humidity_2m,wind_speed_10m&daily=temperature_2m_max,temperature_2m_min&timezone=Asia%2FKabul&forecast_days=1';
+    const r = await fetch(url);
+    if (!r.ok) throw new Error('weather');
+    const j = await r.json();
+    const c = j.current;
+    const day = j.daily || {};
+    const hi = day.temperature_2m_max ? day.temperature_2m_max[0] : null;
+    const lo = day.temperature_2m_min ? day.temperature_2m_min[0] : null;
+    let text = Math.round(c.temperature_2m) + '°C، ' + weatherWord(c.weather_code);
+    if (hi !== null && lo !== null) text += ' (' + Math.round(lo) + '°–' + Math.round(hi) + '°)';
+    w.textContent = text;
+  } catch (e) {
+    w.textContent = 'د هوا معلومات نشته';
+  }
+}
+
+// --- Live player placeholder: a proper box until the Caster player appears ---
+function watchCaster() {
+  const box = $('playerBox');
+  const text = $('playerBoxText');
+  const retry = $('playerRetry');
+  if (!box) return;
+  let waited = 0;
+  const timer = setInterval(() => {
+    waited += 2;
+    const frame = document.querySelector('.cstrEmbed iframe');
+    if (frame) {
+      box.hidden = true;
+      clearInterval(timer);
+      return;
+    }
+    if (waited >= 14) {
+      clearInterval(timer);
+      if (text) text.textContent = 'سټوډیو لا ژوندۍ نه ده — کله چې میکسر وصل شي او خپرونه ژوندۍ شي، پلیر به دلته ښکاره شي.';
+      if (retry) retry.hidden = false;
+    }
+  }, 2000);
+  if (retry) {
+    retry.onclick = () => {
+      retry.hidden = true;
+      if (text) text.textContent = '⏳ ژوندۍ پلیر بارېږي…';
+      const old = document.querySelector('script[src*="caster.fm/widgets/embed.js"]');
+      if (old) old.remove();
+      const s = document.createElement('script');
+      s.src = 'https://cdn.cloud.caster.fm/widgets/embed.js';
+      document.body.appendChild(s);
+      watchCaster();
+    };
+  }
+}
+
 const dict = {
   ps: {
     brand: 'سلام روزګان راډیو',
@@ -531,6 +626,13 @@ $('playerStatus').textContent = 'د ژوندۍ راډیو د اورېدو لپا
   }
 
   setLanguage(lang);
+
+  tickClock();
+  setInterval(tickClock, 1000);
+  loadWeather();
+  const wr = $('weatherRefresh');
+  if (wr) wr.onclick = loadWeather;
+  watchCaster();
 
   try {
     const state = await api('/api/status');
